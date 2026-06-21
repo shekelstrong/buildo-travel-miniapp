@@ -1,79 +1,35 @@
-# Buildo Путешествия — Telegram Mini App
+# Buildo Travel Mini App
 
-> **AI-фото себя в любой точке мира за 30 секунд**
+> Полный маршрут под твой бюджет и интересы за минуту
 
-Часть экосистемы **Buildo** (https://buildo.ru). MIT licensed. Open source.
+Telegram Mini App (открывается через Telegram-бот).
 
-![Buildo](https://img.shields.io/badge/Buildo-ecosystem-5B8DEF?style=for-the-badge)
-![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+## Локальная разработка
 
----
-
-## Что это
-
-Mini App интерфейс продукта Путешествия. Telegram WebApp SDK, Vite SPA, Layero/Vercel deploy.
-
-**Сценарий использования (Telegram Mini App):** Галерея локаций (100+), выбор стиля, превью
-
----
-
-## Архитектура
-
-```
-Buildo Путешествия экосистема
-├── shekelstrong/buildo-travel-tg          ← этот репо (Telegram-бот)
-├── shekelstrong/buildo-travel-miniapp    ← Mini App
-└── shekelstrong/buildo-travel-site        ← Маркетинговый сайт
+```bash
+npm install
+npm run dev
+# → http://localhost:5173
 ```
 
----
+## Build
 
-## Стек
-
-| Слой | Технология |
-|---|---|
-| Bot | aiogram 3.x + Redis FSM + Docker |
-| Frontend | Vite + React 19 + Tailwind + Telegram WebApp SDK |
-| Backend | FastAPI + YandexART + ЮKassa + CDN |
-| AI (image) | YandexART (или Photoroom API fallback) |
-| AI (text) | MiniMax M3 (описания локаций) |
-| Deploy | Layero / Vercel / Cloudflare Pages (manual deploy by user) |
-
----
-
-## Монетизация
-
-590 ₽ за 10 фото / 1490 ₽ за 30 фото + пресеты
-
-**Целевая аудитория:** Туристы, SMM-щики, travel-блогеры, nomads
-**Конкуренты (РФ):** Teleport AI (не в РФ), FaceApp, PicsArt
-
----
+```bash
+npm run build
+# → dist/ (committed to repo for Layero static delivery)
+```
 
 ## Деплой
 
-```bash
-cp .env.example .env
-# заполни: TELEGRAM_BOT_TOKEN, OPENROUTER_API_KEY, YOOKASSA_*
-docker compose up --build
-```
+Платформа: **Layero** (static, dist/ precommitted).
 
-Продакшен:
-```bash
-git push origin main  # GitHub Actions → SSH → VPS → docker compose up -d --build
-```
+## Стек
 
----
+- Vite 6 + React 19
+- TypeScript 5.4
+- Tailwind CSS 3.4
+- Brand color: `#F59E0B`
 
-## Связанные репо
+## Лицензия
 
-- [buildo-travel-tg](https://github.com/shekelstrong/buildo-travel-tg) — этот репо
-- [buildo-travel-miniapp](https://github.com/shekelstrong/buildo-travel-miniapp)
-- [buildo-travel-site](https://github.com/shekelstrong/buildo-travel-site)
-- [nemo-team-docs/projects/buildo/travel/](https://github.com/shekelstrong/nemo-team-docs/tree/main/projects/buildo/travel) — спецификация
-
----
-
-## License
-
-MIT (c) 2026 Buildo Ecosystem. Inspired by [awesome-generative-ai-apps](https://github.com/Anil-matcha/awesome-generative-ai-apps).
+MIT © 2026 Buildo
